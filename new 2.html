@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Balloons</title>
+<style>
+  body {
+    background-color: pink;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .balloon {
+    position: relative;
+    width: 40px;
+    height: 80px;
+    background-color: lightcoral;
+    border-radius: 50%;
+    animation: float 5s infinite;
+    margin-right: 10px;
+  }
+
+  .string {
+    position: absolute;
+    width: 2px;
+    height: 200px;
+    background-color: darksalmon;
+    bottom: 80px;
+    left: 19px;
+    transform: scaleY(2);
+  }
+
+  .text {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: gold;
+    text-align: center;
+    animation: rise 15s infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rise {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-100px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+  }
+
+  .letter {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: black;
+    animation: riseLetter 5s infinite;
+  }
+
+  @keyframes riseLetter {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-100px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+  }
+
+  /* New styles for the birthday message */
+  .birthday-message {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    animation: appearWord 1s forwards;
+  }
+
+  @keyframes appearWord {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="text">Happy Birthday</div>
+  <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">H</div>
+  </div>
+  <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">a</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">p</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">p</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">y</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">B</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">i</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">r</div>
+  </div> 
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">t</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">h</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">d</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">a</div>
+  </div>
+   <div class="balloon">
+    <div class="string"></div>
+    <div class="letter">y</div>
+  </div>
+  
+  
+  <!-- Other balloons and letters omitted for brevity -->
+  <div class="birthday-message" id="birthdayMessage">
+    <p>
+Dear Matshidiso
+On this special day, I want to take a moment to express my heartfelt gratitude and warmest wishes to you as you celebrate another year of your beautiful existence. Happy Birthday!
+I am filled with gratitude for having a friend like you in my life, in you I have gained a sister. I want to thank you for always being there for me whenever I needed you. Your selflessness and generosity have eased my burdens and lifted my spirits in times of need, and for that, I am profoundly grateful.
+
+As you mark another milestone in your journey, I want you to know how much you are cherished and admired. Your kindness knows no bounds, and your heart is as vast as the ocean. May your birthday be filled with boundless joy, laughter, and love, just as you've filled my life with these precious gifts.
+
+ You've also been a source of encouragement and inspiration for me. Your words of wisdom and your positive attitude have helped me stay strong and motivated, even when things get tough. I can't thank you enough for your support.
+Matshidiso, you're a wonderful person, and I feel lucky to have you as a friend. I hope your birthday is filled with happiness, laughter, and all the things you love. You deserve the best!
+
+Here's to another amazing year ahead. Happy Birthday once again my love!
+
+</p>
+  </div>
+
+  <script>
+    // JavaScript to split the paragraph into words and animate them
+    const paragraph = document.querySelector('#birthdayMessage p');
+    const words = paragraph.innerText.split(' ');
+    paragraph.innerText = '';
+
+    words.forEach((word, index) => {
+      const span = document.createElement('span');
+      span.innerText = word + (index === words.length - 1 ? '' : ' ');
+      span.style.opacity = '0';
+      span.style.animation = `appearWord 2s forwards ${index * 0.5}s`;
+      paragraph.appendChild(span);
+    });
+  </script>
+</body>
+</html>
