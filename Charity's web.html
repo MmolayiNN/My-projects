@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matshidiso Ngwepe's Birthday</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black; /* Set background color */
+            cursor: pointer; /* Add cursor pointer */
+        }
+        .birthday-card {
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            animation: dance 1s infinite alternate; /* Added animation */
+        }
+        @keyframes dance {
+            from { transform: translate(-40%, -30%); } /* Adjusted to move more to the left */
+            to { transform: translate(-60%, -10%); } /* Adjusted to move more to the right */
+        }
+        .birthday-card img {
+            width: 100%; /* Adjusted to cover the whole card */
+            height: 100%; /* Adjusted to cover the whole card */
+            object-fit: cover; /* Added to cover the whole card */
+        }
+        .hidden {
+            display: none;
+        }
+        #slide-show img {
+            width: auto;
+            height: 300px; /* Adjust the default height as needed */
+            object-fit: contain;
+        }
+        #slide1 {
+            width: 300px; /* Adjust the width of slide 1 */
+            height: auto; /* Keep aspect ratio */
+        }
+        #slide2 {
+            width: 300px; /* Adjust the width of slide 2 */
+            height: auto; /* Keep aspect ratio */
+        }
+        #slide3 {
+            width: 300px; /* Adjust the width of slide 3 */
+            height: auto; /* Keep aspect ratio */
+        }
+        #slide4 {
+            width: 300px; /* Adjust the width of slide 4 */
+            height: auto; /* Keep aspect ratio */
+        }
+        .birthday-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: blue; /* Set button background color to blue */
+            color: white; /* Text color */
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .birthday-button:hover {
+            background-color: lightblue; /* Change hover background color */
+        }
+        h1, p {
+            color: white; /* Text color */
+            font-style: italic; /* Set font style to italic */
+        }
+        .deep-pink {
+            color: white; /* Text color */
+            background-color: blue; /* Set background color to blue */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .deep-pink:hover {
+            background-color: lightblue; /* Change hover background color */
+            color: white; /* Change text color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-card" onclick="showBirthdayMessage()">
+        <img src="https://4vector.com/i/free-vector-blue-gift-box-theme-vector_005670_bb.jpg " alt="Virtual Birthday Card">
+    </div>
+    <div id="birthday-message" class="hidden">
+        <h1>Happy Birthday Matshididso Ngwepe!</h1>
+        <p>May your day be as beautiful as you are, here's to being 26!</p>
+        <button class="birthday-button" onclick="showSlideShow()">Show Slide Show</button>
+		 <a href="new 2.html" class="deep-pink">Balloons</a>
+    </div>
+    <div id="slide-show" class="hidden">
+        <!-- Add your slide show content here -->
+        <img id="slide1" src="C:\Users\mnisi\Downloads\Tshidi1.jpg"  alt="Slideshow Image">
+        <img id="slide2" src="C:\Users\mnisi\Downloads\Tshidi2.jpg" alt="Slideshow Image">
+        <img id="slide3" src="C:\Users\mnisi\Downloads\Tshidi3.jpg"  alt="Slideshow Image">
+        <img id="slide4" src="C:\Users\mnisi\Downloads\Tshidi4.jpg" alt="Slideshow Image">
+        <img id="slide5" src="C:\Users\mnisi\Downloads\Tshidi5.jpg" alt="Slideshow Image">
+		<img id="slide6" src="C:\Users\mnisi\Downloads\Tshidi6.jpg"  alt="Slideshow Image">
+        <img id="slide7" src="C:\Users\mnisi\Downloads\Tshidi7.jpg" alt="Slideshow Image">
+		<img id="slide8" src="C:\Users\mnisi\Downloads\Tshidi8.jpg"  alt="Slideshow Image">
+        <img id="slide9" src="C:\Users\mnisi\Downloads\Tshidi9.jpg" alt="Slideshow Image">
+		<img id="slide10" src="C:\Users\mnisi\Downloads\Tshidi10.jpg"  alt="Slideshow Image">
+        <img id="slide11" src="C:\Users\mnisi\Downloads\Tshidi11.jpg" alt="Slideshow Image">
+		
+		  <div id="slide10">
+        
+    <video controls>
+        <source src="C:\Users\mnisi\Desktop\Carol.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+        </p>
+    </div>
+
+    <script>
+        function showBirthdayMessage() {
+            document.querySelector('.birthday-card').style.display = 'none';
+            document.getElementById('birthday-message').classList.remove('hidden');
+        }
+
+        function showSlideShow() {
+            document.getElementById('slide-show').classList.remove('hidden');
+            // Start the slideshow
+            displaySlide(1);
+        }
+
+   function displaySlide(slideNumber) {
+    var currentSlide = document.getElementById('slide' + slideNumber);
+    var nextSlideNumber = slideNumber + 1;
+    var nextSlide = document.getElementById('slide' + nextSlideNumber);
+    
+    // Display current slide
+    currentSlide.style.display = 'block'; // Change 'inline' to 'block'
+
+    // Hide current slide after 2 seconds for all slides
+    var duration = 2000; // Set duration to 2000 milliseconds (2 seconds)
+    setTimeout(function() {
+        currentSlide.style.display = 'none';
+        
+        // If next slide exists, display it after the specified duration
+        if (nextSlide) {
+            displaySlide(nextSlideNumber);
+        }
+    }, duration);
+}
+
+    </script>
+</body>
+</html>
+
